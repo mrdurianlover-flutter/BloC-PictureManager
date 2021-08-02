@@ -1,0 +1,1139 @@
+{
+	"info": {
+		"_postman_id": "901a4673-4fdd-4f9d-8f6d-3351a0910f00",
+		"name": "PictsManager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllPictures",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3002/api/v1/picture/search/Nouvel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"picture",
+						"search",
+						"Nouvel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllGalleryUsers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3002/api/v1/gallery/getAllUsers/60e974cb5ab98de51c38cab4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"gallery",
+						"getAllUsers",
+						"60e974cb5ab98de51c38cab4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "maxel1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Achanger123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3002/api/v1/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signup",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "maxel1",
+							"type": "text"
+						},
+						{
+							"key": "fullname",
+							"value": "maxel1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Achanger123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3002/api/v1/user/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateGallery",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "galleryname",
+							"value": "Famille23w",
+							"type": "text"
+						},
+						{
+							"key": "owner",
+							"value": "60e6bb9cb3c8ffb740dfcb5d",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3002/api/v1/gallery/creategallery",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"gallery",
+						"creategallery"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteGalleryById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:{{port}}/api/v1/gallery/60e9cfd9da873916e518bc2a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"v1",
+						"gallery",
+						"60e9cfd9da873916e518bc2a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getGalleryByOwner",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwY2NiMWIwYzc2YWI3NWIzY2Q3MTliNCIsImlhdCI6MTYyNDAyNzc5NCwiZXhwIjoxNjI0MTE0MTk0fQ.5MD6gJEUeTyaXrGue5kjzPz9I_6t_-D5VbMGY0fycvA",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "main_user_id",
+							"value": "60e6bb9cb3c8ffb740dfcb5d",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:{{port}}/api/v1/shared/getGalleryByOwner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"v1",
+						"shared",
+						"getGalleryByOwner"
+					],
+					"query": [
+						{
+							"key": "main_user_id",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createShared",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "picture_id",
+							"value": "60e6b88bb3c8ffb740dfcb54",
+							"type": "text"
+						},
+						{
+							"key": "main_user_id",
+							"value": "60e6b6bfb1230eaf1c998cf7",
+							"type": "text"
+						},
+						{
+							"key": "shared_user_id",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "album_id",
+							"value": "60e74f6e6972462819c3728b",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://pic-dev.courthias.space/api/v1/shared/createShared",
+					"protocol": "https",
+					"host": [
+						"pic-dev",
+						"courthias",
+						"space"
+					],
+					"path": [
+						"api",
+						"v1",
+						"shared",
+						"createShared"
+					],
+					"query": [
+						{
+							"key": "picture_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "album_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "main_user_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "shared_user_id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createPicture",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Nouvelle photo 2 3 4sssssw",
+							"type": "text"
+						},
+						{
+							"key": "photo",
+							"type": "file",
+							"src": "/C:/Users/Boubacar Soumare/Desktop/sun.jpg"
+						},
+						{
+							"key": "owner",
+							"value": "60e6df342f2f44d8e4ac9492",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "tags",
+							"value": "yo,oui,non",
+							"type": "text"
+						},
+						{
+							"key": "album_id",
+							"value": "60e974cb5ab98de51c38cab4",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:{{port}}/api/v1/picture",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"v1",
+						"picture"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createSharedUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "shared_id",
+							"value": "60e7420b10542ffe8c64f3c5",
+							"type": "text"
+						},
+						{
+							"key": "owner_id",
+							"value": "60e6b6bfb1230eaf1c998cf7",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3002/api/v1/sharedUser/createSharedUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"sharedUser",
+						"createSharedUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPicturesByOwner",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getByOwner",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "owner",
+							"value": "60e6bb9cb3c8ffb740dfcb5d",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3002/api/v1/gallery/getByOwner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"gallery",
+						"getByOwner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addtogallery",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "picture_id",
+							"value": "60ea0f3c3cbd570da5e28f65",
+							"type": "text"
+						},
+						{
+							"key": "album_id",
+							"value": "60ea0f233cbd570da5e28f5d",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:{{port}}/api/v1/gallery/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"v1",
+						"gallery",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateGallery",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "galleryname",
+							"value": "Projet Renamed",
+							"type": "text"
+						},
+						{
+							"key": "album_id",
+							"value": "60e974c45ab98de51c38cab0",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3002/api/v1/gallery/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"gallery",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addUserToGallery",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "owner_id",
+							"value": "60e9b8cc2bb68fd4d0b2c346",
+							"type": "text"
+						},
+						{
+							"key": "album_id",
+							"value": "60ea06f7b09db711753a3935",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3002/api/v1/sharedUser/addUserToGallery",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"sharedUser",
+						"addUserToGallery"
+					],
+					"query": [
+						{
+							"key": "owner_id",
+							"value": "60e6b6bfb1230eaf1c998cf7",
+							"disabled": true
+						},
+						{
+							"key": "album_id",
+							"value": "60e6bc76b3c8ffb740dfcb66",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getGalleryByPicture",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "picture_id",
+							"value": "60ea0f3c3cbd570da5e28f65",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3002/api/v1/picture/bygallery",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"picture",
+						"bygallery"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getListGalleryByPicture",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "picture_id",
+							"value": "60ea0f3c3cbd570da5e28f65",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3002/api/v1/picture/listgallery",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"picture",
+						"listgallery"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletePictureGallery",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3002/api/v1/gallery/60ea0f233cbd570da5e28f5d/60ea0f3c3cbd570da5e28f65",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"gallery",
+						"60ea0f233cbd570da5e28f5d",
+						"60ea0f3c3cbd570da5e28f65"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addPictureUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3002/api/v1/sharedPicture/60ea1ef55e23e60f584ea603/maxel1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"sharedPicture",
+						"60ea1ef55e23e60f584ea603",
+						"maxel1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPictureUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3002/api/v1/sharedPicture/byuser/60e9b8cc2bb68fd4d0b2c346",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"sharedPicture",
+						"byuser",
+						"60e9b8cc2bb68fd4d0b2c346"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserPicture",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3002/api/v1/sharedPicture/bypicture/60e9b8a22bb68fd4d0b2c33f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"sharedPicture",
+						"bypicture",
+						"60e9b8a22bb68fd4d0b2c33f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOwnerPicture",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3002/api/v1/sharedPicture/byowner/60e7659ea7a5c6001bc4aee7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"sharedPicture",
+						"byowner",
+						"60e7659ea7a5c6001bc4aee7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletePictureUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3002/api/v1/sharedPicture/60e9b8a22bb68fd4d0b2c33f/boubacar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"sharedPicture",
+						"60e9b8a22bb68fd4d0b2c33f",
+						"boubacar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUserGallery",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3002/api/v1/sharedUser/60ea06f7b09db711753a3935/60e9b8cc2bb68fd4d0b2c346",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"sharedUser",
+						"60ea06f7b09db711753a3935",
+						"60e9b8cc2bb68fd4d0b2c346"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "git image",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3002/api/v1/picture/img/user-60ea1ea55e23e60f584ea5f9-1625956085520.jpeg",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"v1",
+						"picture",
+						"img",
+						"user-60ea1ea55e23e60f584ea5f9-1625956085520.jpeg"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "token_test",
+				"type": "string"
+			}
+		]
+	}
+}

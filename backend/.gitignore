@@ -1,0 +1,4 @@
+node_modules/
+public/img/picts/original/*
+public/img/picts/thumb/*
+.env

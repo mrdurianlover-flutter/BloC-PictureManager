@@ -1,0 +1,23 @@
+version: "3.4"
+services:
+  backend:
+    restart: always
+    build:
+      network: host
+      context: ./backend
+    ports:
+      - 3002:3002
+    volumes:
+      - ./backend/public/img/picts:/app/public/img/picts/
+    env_file:
+      - env_prod.env
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+volumes:
+  mongodb:

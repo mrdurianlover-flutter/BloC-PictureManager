@@ -1,0 +1,19 @@
+name: Deploy on pic-dev.courthias.space (DEV)
+on:
+  push:
+    branches:
+      - develop
+    paths: backend/**
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: '${{ secrets.HOST }}'
+          username: '${{ secrets.USERNAME }}'
+          key: '${{ secrets.SSHKEY }}'
+          port: '${{ secrets.PORT }}'
+          script: /mnt/Tank/homes/hugo/deploy-dev.sh

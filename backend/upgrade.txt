@@ -1,0 +1,4 @@
+nom de la photo
+tags
+album
+createdAt, updatedAt

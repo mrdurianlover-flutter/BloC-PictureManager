@@ -1,0 +1,29 @@
+version: "3.4"
+services:
+  backend_dev:
+    restart: always
+    build:
+      network: host
+      context: ./backend
+    ports:
+      - 3003:3002
+    volumes:
+      - ./backend/public/img/picts:/app/public/img/picts/
+    env_file:
+      - env_dev.env   
+    depends_on:
+      - mongo_dev
+  mongo_dev:
+    image: mongo
+    command: mongod --port 27018
+    ports:
+      - 27018:27018
+    volumes:
+      - mongodb_dev:/data/db
+  flutter:
+    build:
+      context: ./mobile
+    volumes:
+      - ./mobile/build/app/:/app/build/app/
+volumes:
+  mongodb_dev:

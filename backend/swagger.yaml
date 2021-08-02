@@ -1,0 +1,547 @@
+swagger: "2.0"
+info:
+  description: This is the official documentation of the Pictures Manager project - EPITECH. enjoy
+  version: "1.0.0"
+  title: Node Rest API documentation - Picts-Manager
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: boubacar.soumare@epitech.eu
+  license:
+    name: Apache 2.0
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: localhost:3002
+basePath: /api/v1
+schemes:
+  - http
+paths:
+  /user/login:
+    post:
+      tags:
+        - User Module
+      summary: Login
+      description: API for Login
+      parameters:
+        - in: body
+          name: body
+          description: Login Payload
+          required: true
+          schema:
+            properties:
+              username:
+                type: string
+              password:
+                type: string
+            #$ref: "#/definitions/User"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Login Successfully
+          schema:
+            $ref: "#/definitions/ApiResponse"
+        "400":
+          description: Invalid Fields
+        "500":
+          description: Internal Server Error
+  /user/signup:
+    post:
+      tags:
+        - User Module
+      summary: Signup
+      description: API for Signup
+      parameters:
+        - in: body
+          name: body
+          description: Signup Payload
+          required: true
+          schema:
+            $ref: "#/definitions/User"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Signup Successfully
+          schema:
+            $ref: "#/definitions/ApiResponse"
+        "400":
+          description: Invalid Fields
+        "500":
+          description: Internal Server Error
+  /picture:
+    post:
+      security:
+        - Bearer: []
+      tags:
+        - Picture Module
+      summary: Picture API
+      description: API for creating picture
+      parameters:
+        - in: body
+          name: body
+          description: Create Picture Payload
+          required: true
+          schema:
+            $ref: "#/definitions/Picture"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Picture Created Successfully
+          schema:
+            $ref: "#/definitions/ApiResponse"
+        "400":
+          description: Invalid Fields
+        "500":
+          description: Internal Server Error
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - Picture Module
+      summary: Picture API
+      description: API for fetching all pictures
+      parameters:
+        - name: skip
+          in: query
+          description: No.of record to be skipped for pagination
+          type: number
+          required: false
+        - name: limit
+          in: query
+          description: no. of record api should return for pagination
+          type: number
+          required: false
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Picture fetched Successfully
+          schema:
+            $ref: "#/definitions/ApiResponse"
+        "400":
+          description: Invalid Fields
+        "500":
+          description: Internal Server Error
+  "/picture/{id}":
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - Picture Module
+      summary: Fetch Picture Detail
+      description: Fetch Picture Detail
+      parameters:
+        - name: id
+          in: path
+          description: Picture Id
+          type: string
+          required: true
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Picture Fetched Successfully
+          schema:
+            $ref: "#/definitions/ApiResponse"
+        "400":
+          description: Invalid Fields
+        "500":
+          description: Internal Server Error
+    put:
+      security:
+        - Bearer: []
+      tags:
+        - Picture Module
+      summary: Update Picture
+      description: Update Picture
+      parameters:
+        - name: id
+          in: path
+          description: Picture Id
+          type: string
+          required: true
+        - in: body
+          name: body
+          description: Update Picture Payload
+          required: true
+          schema:
+            $ref: "#/definitions/Picture"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Picture Updated Successfully
+          schema:
+            $ref: "#/definitions/ApiResponse"
+        "400":
+          description: Invalid Fields
+        "500":
+          description: Internal Server Error
+    delete:
+      security:
+        - Bearer: []
+      tags:
+        - Picture Module
+      summary: Remove Picture
+      description: Remove Picture
+      parameters:
+        - name: id
+          in: path
+          description: Picture Id
+          type: string
+          required: true
+      produces:
+        - application/json
+      responses:
+        204:
+          description: Picture Deleted Successfully
+        "400":
+          description: Invalid Fields
+        "500":
+          description: Internal Server Error
+  "/picture/img/{url}":
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - Picture Module
+      summary: Get image served
+      description: Get image served
+      parameters:
+        - name: url
+          in: path
+          description: image url
+          type: string
+          required: true
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Image/Thumb in JPEG format
+          schema:
+            properties:
+              image:
+                type: string
+                format: binary
+        "400":
+          description: Invalid Fields
+        "401":
+          description: Not have rights to get image
+        "500":
+          description: Internal Server Error
+  /gallery/creategallery:
+    post:
+      security:
+        - Bearer: []
+      tags:
+        - Gallery Module
+      summary: Gallery API
+      description: API for creating gallery
+      parameters:
+        - in: body
+          name: body
+          description: Create Gallery Payload
+          required: true
+          schema:
+            $ref: "#/definitions/Gallery"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Gallery Created Successfully
+          schema:
+            $ref: "#/definitions/ApiResponse"
+        "400":
+          description: Invalid Fields
+        "500":
+          description: Internal Server Error
+  /gallery/getByOwner:
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - Gallery Module
+      summary: Gallery API
+      description: API for fetching all galleries
+      parameters:
+        - name: skip
+          in: query
+          description: No.of record to be skipped for pagination
+          type: number
+          required: false
+        - name: limit
+          in: query
+          description: no. of record api should return for pagination
+          type: number
+          required: false
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Galleries fetched Successfully
+          schema:
+            $ref: "#/definitions/ApiResponse"
+        "400":
+          description: Invalid Fields
+        "500":
+          description: Internal Server Error
+  /gallery/:
+     delete:
+      security:
+        - Bearer: []
+      tags:
+        - Gallery Module
+      summary: Remove Gallery
+      description: Remove Gallery
+      parameters:
+        - name: id
+          in: path
+          description: Gallery Id
+          type: string
+          required: true
+      produces:
+        - application/json
+      responses:
+        204:
+          description: Gallery Deleted Successfully
+        "400":
+          description: Invalid Fields
+        "500":
+          description: Internal Server Error
+  /shared/createshared:
+    post:
+      security:
+        - Bearer: []
+      tags:
+        - Shared Module
+      summary: Shared API
+      description: API for creating shared
+      parameters:
+        - in: body
+          name: body
+          description: Create Shared Payload
+          required: true
+          schema:
+            properties:
+              picture_id:
+                type: string
+              album_id:
+                type: string
+              main_user_id:
+                type: string
+            #$ref: "#/definitions/User"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Shared Created Successfully
+          schema:
+            $ref: "#/definitions/ApiResponse"
+        "400":
+          description: Invalid Fields
+        "500":
+          description: Internal Server Error
+  /shared/getGalleryByOwner:
+      get:
+        security:
+          - Bearer: []
+        tags:
+          - Shared Module
+        summary: Shared API
+        description: API for fetching all shareds
+        parameters:
+          - name: skip
+            in: query
+            description: No.of record to be skipped for pagination
+            type: number
+            required: false
+          - name: limit
+            in: query
+            description: no. of record api should return for pagination
+            type: number
+            required: false
+        produces:
+          - application/json
+        responses:
+          "200":
+            description: Shareds fetched Successfully
+            schema:
+              $ref: "#/definitions/ApiResponse"
+          "400":
+            description: Invalid Fields
+          "500":
+            description: Internal Server Error
+  /sharedUser/createSharedUser:
+    post:
+      security:
+        - Bearer: []
+      tags:
+        - SharedUser Module
+      summary: Shared API
+      description: API for creating sharedUser
+      parameters:
+        - in: body
+          name: body
+          description: Create SharedUser Payload
+          required: true
+          schema:
+            properties:
+              shared_id:
+                type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: SharedUser Created Successfully
+          schema:
+            $ref: "#/definitions/ApiResponse"
+        "400":
+          description: Invalid Fields
+        "500":
+          description: Internal Server Error
+  /sharedUser/getPicturesByOwner:
+      get:
+        security:
+          - Bearer: []
+        tags:
+          - SharedUser Module
+        summary: SharedUser API
+        description: API for fetching all pictures shared with user
+        parameters:
+          - name: skip
+            in: query
+            description: No.of record to be skipped for pagination
+            type: number
+            required: false
+          - name: limit
+            in: query
+            description: no. of record api should return for pagination
+            type: number
+            required: false
+        produces:
+          - application/json
+        responses:
+          "200":
+            description: SharedsUser fetched Successfully
+            schema:
+              $ref: "#/definitions/ApiResponse"
+          "400":
+            description: Invalid Fields
+          "500":
+            description: Internal Server Error
+
+  /sharedPicture/:picture_id/:username:
+      put:
+        security:
+          - Bearer: []
+        tags:
+          - SharedPicture Module
+        summary: SharedPicture API
+        description: Add shared right to User
+        parameters:
+          - in: params
+            name: picture_id
+            description: Picture id
+            required: true
+            schema:
+              properties:
+                album_id:
+                  type: string
+          - in: params
+            name: username
+            description: Username
+            required: true
+            schema:
+              properties:
+                username:
+                  type: string
+        produces:
+          - application/json
+        responses:
+          "200":
+            description: SharedPicture Created Successfully
+            schema:
+              $ref: "#/definitions/ApiResponse"
+          "400":
+            description: Invalid Fields
+          "500":
+            description: Internal Server Error
+  /sharedPicture/:picture/:username:
+      delete:
+        security:
+          - Bearer: []
+        tags:
+          - SharedPicture Module
+        summary: SharedPicture API
+        description: Delete shared right to User
+        parameters:
+          - in: params
+            name: album_id
+            description: Album id
+            required: true
+            schema:
+              properties:
+                album_id:
+                  type: string
+          - in: params
+            name: username
+            description: Username
+            required: true
+            schema:
+              properties:
+                username:
+                  type: string
+        produces:
+          - application/json
+        responses:
+          "200":
+            description: SharedPicture Created Successfully
+            schema:
+              $ref: "#/definitions/ApiResponse"
+          "400":
+            description: Invalid Fields
+          "500":
+            description: Internal Server Error
+  
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+definitions:
+  User:
+    properties:
+      username:
+        type: string
+        description: username of user
+      fullname:
+        type: string
+        description: full name of user
+      password:
+        type: string
+        description: password of the user
+  Picture:
+    properties:
+      name:
+        type: string
+        description: the owner id
+      photo:
+        type: string
+        format: binary
+        description: picture photo
+      tags:
+        type: string
+        description: tags in string separated with comma (',')
+  Gallery:
+    properties:
+      galleryName:
+        type: string
+  ApiResponse:
+    type: object
+    properties:
+      status:
+        type: integer
+      message:
+        type: string
+      body:
+        type: object
